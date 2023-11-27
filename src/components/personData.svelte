@@ -26,6 +26,7 @@
 			// Vang eventuele fouten op tijdens het fetchen van gegevens
 			console.error('There was a problem with the fetch operation:', error);
 		});
-		});		
+		});
+		
 </script>
 
