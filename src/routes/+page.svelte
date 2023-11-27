@@ -154,12 +154,6 @@ onMount(async () => {
 </main>
 
 <style>
-	*{
-    margin: 0;
-    padding: 0;
-    color: white;
-    font-family: 'Papyrus';
-	}
 
 	h1 {
 		text-align: center;
@@ -256,7 +250,7 @@ onMount(async () => {
 	}
 
 	section:nth-of-type(7) > img{
-		width: 20em;
+		width: 18em;
 		margin-right: 50em;
 		margin-top: -8em;
 	}
@@ -266,7 +260,7 @@ onMount(async () => {
 	}
 
 	section:nth-of-type(8) > img{
-		width: 50em;
+		width: 48em;
 		margin-right: 50em;
 		margin-top: -8em;
 	}
