@@ -3,24 +3,39 @@
 </svelte:head>
 
 <script>
-	import { onMount } from 'svelte';
+import { onMount } from 'svelte';
   import CharacterSelector from '../components/personData.svelte';
 
-  let selectedCharacterData = null;
+  // alle karakters voor data ophalen
+  let selectedCharacterHarryData = null;
+  let selectedCharacterHermioneData = null;
+  let selectedCharacterRonData = null;
+  let selectedCharacterNevilleData = null;
+  let selectedCharacterDracoData = null;
+  let selectedCharacterSiriusData = null;
+  let selectedCharacterSnapeData = null;
 
-  onMount(() => {
-    const desiredCharacters = ['Harry Potter', 'Hermione Granger', 'Ron Weasley', 'Draco Malfoy', 'Neville Longbottom', 'Severus Snape', 'Sirius Black'];
+  onMount(async () => {
+    try {
+      const desiredCharacters = ['Harry Potter', 'Hermione Granger', 'Ron Weasley', 'Draco Malfoy', 'Neville Longbottom', 'Severus Snape', 'Sirius Black'];
 
-    fetch('https://hp-api.onrender.com/api/characters')
-      .then(response => response.json())
-      .then(data => {
-        const filteredCharacters = data.filter(character => desiredCharacters.includes(character.name));
-        selectedCharacterData = filteredCharacters[0];
-      })
-      .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-      });
+      const response = await fetch('https://hp-api.onrender.com/api/characters');
+      const data = await response.json();
+      
+      const filteredCharacters = data.filter(character => desiredCharacters.includes(character.name));
+
+      selectedCharacterHarryData = filteredCharacters.find(character => character.name === 'Harry Potter');
+      selectedCharacterHermioneData = filteredCharacters.find(character => character.name === 'Hermione Granger');
+      selectedCharacterRonData = filteredCharacters.find(character => character.name === 'Ron Weasley');
+      selectedCharacterNevilleData = filteredCharacters.find(character => character.name === 'Neville Longbottom');
+      selectedCharacterDracoData = filteredCharacters.find(character => character.name === 'Draco Malfoy');
+      selectedCharacterSiriusData = filteredCharacters.find(character => character.name === 'Sirius Black');
+      selectedCharacterSnapeData = filteredCharacters.find(character => character.name === 'Severus Snape');
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
   });
+
 
 onMount(async () => {
     function scrollToSection(targetClass) {
@@ -106,14 +121,14 @@ onMount(async () => {
 		<h1>harry</h1>
 		<img src="../images/harrypotterstaand.png" alt="">
 
-		{#if selectedCharacterData}
+		{#if selectedCharacterHarryData}
       <ul class="datalist">
-        <li>Name: {selectedCharacterData.name}</li>
-        <li>House: {selectedCharacterData.house}</li>
-        <li>Species: {selectedCharacterData.species}</li>
-        <li>Ancestry: {selectedCharacterData.ancestry}</li>
-        <li>Date of Birth: {selectedCharacterData.dateOfBirth}</li>
-        <li>Patronus: {selectedCharacterData.patronus}</li>
+        <li>Name: {selectedCharacterHarryData.name}</li>
+        <li>House: {selectedCharacterHarryData.house}</li>
+        <li>Species: {selectedCharacterHarryData.species}</li>
+        <li>Ancestry: {selectedCharacterHarryData.ancestry}</li>
+        <li>Date of Birth: {selectedCharacterHarryData.dateOfBirth}</li>
+        <li>Patronus: {selectedCharacterHarryData.patronus}</li>
       </ul>
     {/if}
 	</section>
@@ -121,31 +136,97 @@ onMount(async () => {
 	<section class="hermionesection">
 		<h1>hermione</h1>
 		<img src="../images/hermelienstaand.png" alt="">
+
+		{#if selectedCharacterHermioneData}
+    <ul class="datalist">
+      <li>Name: {selectedCharacterHermioneData.name}</li>
+      <li>House: {selectedCharacterHermioneData.house}</li>
+      <li>Species: {selectedCharacterHermioneData.species}</li>
+      <li>Ancestry: {selectedCharacterHermioneData.ancestry}</li>
+      <li>Date of Birth: {selectedCharacterHermioneData.dateOfBirth}</li>
+      <li>Patronus: {selectedCharacterHermioneData.patronus}</li>
+    </ul>
+  {/if}
 	</section>
 
 	<section class="ronsection">
 		<h1>ron</h1>
 		<img src="../images/ronstaand.png" alt="">
+
+		{#if selectedCharacterRonData}
+		<ul class="datalist">
+		  <li>Name: {selectedCharacterRonData.name}</li>
+		  <li>House: {selectedCharacterRonData.house}</li>
+		  <li>Species: {selectedCharacterRonData.species}</li>
+		  <li>Ancestry: {selectedCharacterRonData.ancestry}</li>
+		  <li>Date of Birth: {selectedCharacterRonData.dateOfBirth}</li>
+		  <li>Patronus: {selectedCharacterRonData.patronus}</li>
+		</ul>
+	  {/if}
 	</section>
 
 	<section class="nevillesection">
 		<h1>neville</h1>
 		<img src="../images/nevillestaand.png" alt="">
+
+		{#if selectedCharacterNevilleData}
+		<ul class="datalist">
+		  <li>Name: {selectedCharacterNevilleData.name}</li>
+		  <li>House: {selectedCharacterNevilleData.house}</li>
+		  <li>Species: {selectedCharacterNevilleData.species}</li>
+		  <li>Ancestry: {selectedCharacterNevilleData.ancestry}</li>
+		  <li>Date of Birth: {selectedCharacterNevilleData.dateOfBirth}</li>
+		  <li>Patronus: {selectedCharacterNevilleData.patronus}</li>
+		</ul>
+	  {/if}
 	</section>
 
 	<section class="dracosection">
 		<h1>draco</h1>
 		<img src="../images/dracostaand.png" alt="">
+
+		{#if selectedCharacterDracoData}
+		<ul class="datalist">
+		  <li>Name: {selectedCharacterDracoData.name}</li>
+		  <li>House: {selectedCharacterDracoData.house}</li>
+		  <li>Species: {selectedCharacterDracoData.species}</li>
+		  <li>Ancestry: {selectedCharacterDracoData.ancestry}</li>
+		  <li>Date of Birth: {selectedCharacterDracoData.dateOfBirth}</li>
+		  <li>Patronus: {selectedCharacterDracoData.patronus}</li>
+		</ul>
+	  {/if}
 	</section>
 
 	<section class="siriussection">
 		<h1>sirius</h1>
 		<img src="../images/siriusstaand.png" alt="">
+
+		{#if selectedCharacterSiriusData}
+		<ul class="datalist">
+		  <li>Name: {selectedCharacterSiriusData.name}</li>
+		  <li>House: {selectedCharacterSiriusData.house}</li>
+		  <li>Species: {selectedCharacterSiriusData.species}</li>
+		  <li>Ancestry: {selectedCharacterSiriusData.ancestry}</li>
+		  <li>Date of Birth: {selectedCharacterSiriusData.dateOfBirth}</li>
+		  <li>Patronus: {selectedCharacterSiriusData.patronus}</li>
+		</ul>
+	  {/if}
 	</section>
 
 	<section class="snapesection">
 		<h1>snape</h1>
 		<img src="../images/snapestaand.png" alt="">
+
+		{#if selectedCharacterSnapeData}
+		<ul class="datalist">
+		  <li>Name: {selectedCharacterSnapeData.name}</li>
+		  <li>House: {selectedCharacterSnapeData.house}</li>
+		  <li>Species: {selectedCharacterSnapeData.species}</li>
+		  <li>Ancestry: {selectedCharacterSnapeData.ancestry}</li>
+		  <li>Date of Birth: {selectedCharacterSnapeData.dateOfBirth}</li>
+		  <li>Patronus: {selectedCharacterSnapeData.patronus}</li>
+		</ul>
+	  {/if}
 	</section>
 
 	<section class="datasection">
