@@ -4,7 +4,7 @@
 
 <script>
 import { onMount } from 'svelte';
-  import CharacterSelector from '../components/personData.svelte';
+import Barchart from '../components/Barchart.svelte';
 
   // alle karakters voor data ophalen
   let selectedCharacterHarryData = null;
@@ -15,35 +15,48 @@ import { onMount } from 'svelte';
   let selectedCharacterSiriusData = null;
   let selectedCharacterSnapeData = null;
 
+  
   onMount(async () => {
     try {
-      const desiredCharacters = ['Harry Potter', 'Hermione Granger', 'Ron Weasley', 'Draco Malfoy', 'Neville Longbottom', 'Severus Snape', 'Sirius Black'];
+		const desiredCharacters = ['Harry Potter', 'Hermione Granger', 'Ron Weasley', 'Draco Malfoy', 'Neville Longbottom', 'Severus Snape', 'Sirius Black'];
 
-      const response = await fetch('https://hp-api.onrender.com/api/characters');
-      const data = await response.json();
-      
-      const filteredCharacters = data.filter(character => desiredCharacters.includes(character.name));
+	const response = await fetch('https://hp-api.onrender.com/api/characters');
+	const data = await response.json();
 
-      selectedCharacterHarryData = filteredCharacters.find(character => character.name === 'Harry Potter');
-      selectedCharacterHermioneData = filteredCharacters.find(character => character.name === 'Hermione Granger');
-      selectedCharacterRonData = filteredCharacters.find(character => character.name === 'Ron Weasley');
-      selectedCharacterNevilleData = filteredCharacters.find(character => character.name === 'Neville Longbottom');
-      selectedCharacterDracoData = filteredCharacters.find(character => character.name === 'Draco Malfoy');
-      selectedCharacterSiriusData = filteredCharacters.find(character => character.name === 'Sirius Black');
-      selectedCharacterSnapeData = filteredCharacters.find(character => character.name === 'Severus Snape');
-    } catch (error) {
-      console.error('There was a problem with the fetch operation:', error);
-    }
-  });
+	console.log('Alle karakters:', data);
 
+	const filteredCharacters = data.filter(character => desiredCharacters.includes(character.name));
 
-onMount(async () => {
+	console.log('Gefilterde karakters:', filteredCharacters);
+
+	selectedCharacterHarryData = filteredCharacters.find(character => character.name === 'Harry Potter');
+	selectedCharacterHermioneData = filteredCharacters.find(character => character.name === 'Hermione Granger');
+	selectedCharacterRonData = filteredCharacters.find(character => character.name === 'Ron Weasley');
+	selectedCharacterNevilleData = filteredCharacters.find(character => character.name === 'Neville Longbottom');
+	selectedCharacterDracoData = filteredCharacters.find(character => character.name === 'Draco Malfoy');
+	selectedCharacterSiriusData = filteredCharacters.find(character => character.name === 'Sirius Black');
+	selectedCharacterSnapeData = filteredCharacters.find(character => character.name === 'Severus Snape');
+
+	console.log('Geselecteerde karakters:', selectedCharacterHarryData, selectedCharacterHermioneData, selectedCharacterRonData, selectedCharacterNevilleData, selectedCharacterDracoData, selectedCharacterSiriusData, selectedCharacterSnapeData);
+	} catch (error) {
+	console.error('Er was een probleem met de fetch-operatie:', error);
+	}
+
     function scrollToSection(targetClass) {
       const targetSection = document.querySelector(`.${targetClass}`);
 
       if (targetSection) {
         targetSection.scrollIntoView({ behavior: 'smooth' });
       }
+    }
+
+// scroll to section when clicked on button
+	const button = document.querySelector('button');
+
+	if (button) {
+      button.addEventListener('click', () => {
+        scrollToSection('graphicssection');
+      });
     }
 
     // Event listener voor Harry
@@ -74,27 +87,26 @@ onMount(async () => {
       });
     });
 
-	    // Event listener voor Draco
+ // Event listener voor Draco
 		document.querySelectorAll('.draco').forEach((dracoElement) => {
       dracoElement.addEventListener('click', () => {
         scrollToSection('dracosection');
       });
     });
 
-	    // Event listener voor Sirius
+// Event listener voor Sirius
 		document.querySelectorAll('.sirius').forEach((siriusElement) => {
       siriusElement.addEventListener('click', () => {
         scrollToSection('siriussection');
       });
     });
 
-	    // Event listener voor Snape
+// Event listener voor Snape
 		document.querySelectorAll('.snape').forEach((snapeElement) => {
       snapeElement.addEventListener('click', () => {
         scrollToSection('snapesection');
       });
     });
-  
   });
 </script>
 
@@ -243,145 +255,8 @@ onMount(async () => {
 	  {/if}
 	</section>
 
-	<section class="datasection">
-		<h1>data</h1>
+	<section class="graphicssection">
+		<h1>data</h1>	
+		<Barchart />
 	</section>
 </main>
-
-<style>
-
-	h1 {
-		text-align: center;
-		margin-top: 3em;
-	}
-
-	ul {
-		list-style: none;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		padding: 5em;
-		cursor: pointer;
-		margin-top: 2em;
-	}
-
-	img {
-		width: 10em;
-	}
-
-	button { 
-		background-color: white;
-		color: blue;
-		padding: 0.5em;
-		border-radius: 1em;
-		cursor: pointer;
-		width: 10em;
-	}
-
-	section{
-		height: 60em; 
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	section:first-of-type{
-		background-color: rgb(43, 30, 144);
-	}
-
-	section:nth-of-type(2){
-		background-color: rgb(156,18,3);
-	}
-
-	section:nth-of-type(2) > img{
-		width: 60em;
-		margin-right: 50em;
-		margin-top: -5em;
-	}
-
-	section:nth-of-type(3){
-		background-color: rgb(125, 15, 3);
-	}
-
-	section:nth-of-type(3) > img{
-		width: 15em;
-		margin-right: 54em;
-		margin-top: -5em;
-	}
-
-	section:nth-of-type(4){
-		background-color: rgb(90, 10, 1);
-	}
-
-	section:nth-of-type(4) > img{
-		width: 17em;
-		margin-right: 50em;
-		margin-top: -5em;
-	}
-
-	section:nth-of-type(5){
-		background-color: rgb(59, 6, 0);
-	}
-
-	section:nth-of-type(5) > img{
-		width: 12em;
-		margin-right: 50em;
-		margin-top: -5em;
-	}
-
-	section:nth-of-type(6){
-		background-color: rgb(3,56,7);
-	}
-
-	section:nth-of-type(6) > img{
-		width: 18em;
-		margin-right: 54em;
-		margin-top: -5em;
-	}
-
-	section:nth-of-type(7){
-		background-color: rgb(156,18,3);
-	}
-
-	section:nth-of-type(7) > img{
-		width: 18em;
-		margin-right: 50em;
-		margin-top: -8em;
-	}
-
-	section:nth-of-type(8){
-		background-color: rgb(3,56,7);
-	}
-
-	section:nth-of-type(8) > img{
-		width: 48em;
-		margin-right: 50em;
-		margin-top: -8em;
-	}
-
-	section:nth-of-type(9){
-		background-color: rgb(56, 3, 43);
-	}
-
-	.datalist{
-    flex-direction: column;
-    margin-top: -25em;
-    margin-left: 24em;
-    font-size: 1.5em;
-    width: 13em;
-	background-image: url('/images/perkament.png');
-	background-size: cover;
-	gap: 1em;
-	cursor: default;
-	}
-
-	.datalist > li{
-		color: black;
-		margin-left: 1em;
-		font-family: 'Papyrus';
-	}
-
-</style>
-
-<CharacterSelector />

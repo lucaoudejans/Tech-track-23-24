@@ -1,6 +1,150 @@
+ /* styling whole page */
 *{
     margin: 0;
     padding: 0;
     color: white;
     font-family: 'Papyrus';
 	}
+
+
+h1 {
+    text-align: center;
+    margin-top: 3em;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5em;
+    cursor: pointer;
+    margin-top: 2em;
+}
+
+img {
+    width: 10em;
+}
+
+button { 
+    background-color: white;
+    color: blue;
+    padding: 0.5em;
+    border-radius: 1em;
+    cursor: pointer;
+    width: 10em;
+}
+
+
+ /* styling sections per person */
+section{
+    height: 55em; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section:first-of-type{
+    background-color: rgb(43, 30, 144);
+}
+
+section:nth-of-type(2){
+    background-color: rgb(156,18,3);
+}
+
+section:nth-of-type(2) > img{
+    width: 60em;
+    margin-right: 50em;
+    margin-top: -5em;
+}
+
+section:nth-of-type(3){
+    background-color: rgb(125, 15, 3);
+}
+
+section:nth-of-type(3) > img{
+    width: 15em;
+    margin-right: 54em;
+    margin-top: -5em;
+}
+
+section:nth-of-type(4){
+    background-color: rgb(90, 10, 1);
+}
+
+section:nth-of-type(4) > img{
+    width: 17em;
+    margin-right: 50em;
+    margin-top: -5em;
+}
+
+section:nth-of-type(5){
+    background-color: rgb(59, 6, 0);
+}
+
+section:nth-of-type(5) > img{
+    width: 12em;
+    margin-right: 50em;
+    margin-top: -3em;
+}
+
+section:nth-of-type(6){
+    background-color: rgb(3,56,7);
+}
+
+section:nth-of-type(6) > img{
+    width: 18em;
+    margin-right: 54em;
+    margin-top: -5em;
+}
+
+section:nth-of-type(7){
+    background-color: rgb(156,18,3);
+}
+
+section:nth-of-type(7) > img{
+    width: 18em;
+    margin-right: 50em;
+    margin-top: -5em;
+}
+
+section:nth-of-type(8){
+    background-color: rgb(3,56,7);
+}
+
+section:nth-of-type(8) > img{
+    width: 48em;
+    margin-right: 50em;
+    margin-top: -5em;
+}
+
+section:nth-of-type(9){
+    background-color: rgb(56, 3, 43);
+}
+
+ /* styling data per person  */
+.datalist{
+flex-direction: column;
+margin-top: -28em;
+margin-left: 24em;
+font-size: 1.5em;
+width: 13em;
+background-image: url('/images/perkament.png');
+background-size: cover;
+gap: 1em;
+cursor: default;
+}
+
+.datalist > li{
+    color: black;
+    margin-left: 1em;
+    font-family: 'Papyrus';
+}
+
+#chart-container{
+    background-color: white;
+    padding: 2em;
+    border-radius: 2em;
+    margin-top: 5em;
+}
