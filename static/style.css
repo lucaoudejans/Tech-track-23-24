@@ -147,4 +147,13 @@ cursor: default;
     padding: 2em;
     border-radius: 2em;
     margin-top: 5em;
+    margin-right: 40em;
+}
+
+#dotplot-container{
+    background-color: white;
+    padding: 2em;
+    border-radius: 2em;
+    margin-top: -23.3em;
+    margin-left: 40em;
 }

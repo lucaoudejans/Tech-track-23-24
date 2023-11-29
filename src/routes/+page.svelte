@@ -5,6 +5,7 @@
 <script>
 import { onMount } from 'svelte';
 import Barchart from '../components/Barchart.svelte';
+import Dotplot from '../components/Dotplot.svelte';
 
   // alle karakters voor data ophalen
   let selectedCharacterHarryData = null;
@@ -258,5 +259,6 @@ import Barchart from '../components/Barchart.svelte';
 	<section class="graphicssection">
 		<h1>data</h1>	
 		<Barchart />
+		<Dotplot />
 	</section>
 </main>

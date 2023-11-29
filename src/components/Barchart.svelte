@@ -177,6 +177,5 @@ import { onMount } from 'svelte';
 });
 </script>
 
-<main>
 <div id="chart-container"></div>
-</main>
+
