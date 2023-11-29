@@ -124,10 +124,12 @@ onMount(async () => {
 		{#if selectedCharacterHarryData}
       <ul class="datalist">
         <li>Name: {selectedCharacterHarryData.name}</li>
+		<li>Hair color: {selectedCharacterHarryData.hairColour}</li>
         <li>House: {selectedCharacterHarryData.house}</li>
+		<li>Hogwarts student: {selectedCharacterHarryData.hogwartsStudent}</li>
         <li>Species: {selectedCharacterHarryData.species}</li>
         <li>Ancestry: {selectedCharacterHarryData.ancestry}</li>
-        <li>Date of Birth: {selectedCharacterHarryData.dateOfBirth}</li>
+        <li>alive: {selectedCharacterHarryData.alive}</li>
         <li>Patronus: {selectedCharacterHarryData.patronus}</li>
       </ul>
     {/if}
@@ -140,10 +142,12 @@ onMount(async () => {
 		{#if selectedCharacterHermioneData}
     <ul class="datalist">
       <li>Name: {selectedCharacterHermioneData.name}</li>
+	  <li>Hair color: {selectedCharacterHermioneData.hairColour}</li>
       <li>House: {selectedCharacterHermioneData.house}</li>
+	  <li>Hogwarts student: {selectedCharacterHermioneData.hogwartsStudent}</li>
       <li>Species: {selectedCharacterHermioneData.species}</li>
       <li>Ancestry: {selectedCharacterHermioneData.ancestry}</li>
-      <li>Date of Birth: {selectedCharacterHermioneData.dateOfBirth}</li>
+      <li>Alive: {selectedCharacterHermioneData.alive}</li>
       <li>Patronus: {selectedCharacterHermioneData.patronus}</li>
     </ul>
   {/if}
@@ -156,10 +160,12 @@ onMount(async () => {
 		{#if selectedCharacterRonData}
 		<ul class="datalist">
 		  <li>Name: {selectedCharacterRonData.name}</li>
+		  <li>Hair color: {selectedCharacterRonData.hairColour}</li>
 		  <li>House: {selectedCharacterRonData.house}</li>
+		  <li>Hogwarts student: {selectedCharacterRonData.hogwartsStudent}</li>
 		  <li>Species: {selectedCharacterRonData.species}</li>
 		  <li>Ancestry: {selectedCharacterRonData.ancestry}</li>
-		  <li>Date of Birth: {selectedCharacterRonData.dateOfBirth}</li>
+		  <li>Alive: {selectedCharacterRonData.alive}</li>
 		  <li>Patronus: {selectedCharacterRonData.patronus}</li>
 		</ul>
 	  {/if}
@@ -172,10 +178,12 @@ onMount(async () => {
 		{#if selectedCharacterNevilleData}
 		<ul class="datalist">
 		  <li>Name: {selectedCharacterNevilleData.name}</li>
+		  <li>Hair color: {selectedCharacterNevilleData.hairColour}</li>
 		  <li>House: {selectedCharacterNevilleData.house}</li>
+		  <li>Hogwarts student: {selectedCharacterNevilleData.hogwartsStudent}</li>
 		  <li>Species: {selectedCharacterNevilleData.species}</li>
 		  <li>Ancestry: {selectedCharacterNevilleData.ancestry}</li>
-		  <li>Date of Birth: {selectedCharacterNevilleData.dateOfBirth}</li>
+		  <li>Alive: {selectedCharacterNevilleData.alive}</li>
 		  <li>Patronus: {selectedCharacterNevilleData.patronus}</li>
 		</ul>
 	  {/if}
@@ -188,10 +196,12 @@ onMount(async () => {
 		{#if selectedCharacterDracoData}
 		<ul class="datalist">
 		  <li>Name: {selectedCharacterDracoData.name}</li>
+		  <li>Hair color: {selectedCharacterDracoData.hairColour}</li>
 		  <li>House: {selectedCharacterDracoData.house}</li>
+		  <li>Hogwarts student: {selectedCharacterDracoData.hogwartsStudent}</li>
 		  <li>Species: {selectedCharacterDracoData.species}</li>
 		  <li>Ancestry: {selectedCharacterDracoData.ancestry}</li>
-		  <li>Date of Birth: {selectedCharacterDracoData.dateOfBirth}</li>
+		  <li>Alive: {selectedCharacterDracoData.alive}</li>
 		  <li>Patronus: {selectedCharacterDracoData.patronus}</li>
 		</ul>
 	  {/if}
@@ -204,10 +214,12 @@ onMount(async () => {
 		{#if selectedCharacterSiriusData}
 		<ul class="datalist">
 		  <li>Name: {selectedCharacterSiriusData.name}</li>
+		  <li>Hair color: {selectedCharacterSiriusData.hairColour}</li>
 		  <li>House: {selectedCharacterSiriusData.house}</li>
+		  <li>Hogwarts student: {selectedCharacterSiriusData.hogwartsStudent}</li>
 		  <li>Species: {selectedCharacterSiriusData.species}</li>
 		  <li>Ancestry: {selectedCharacterSiriusData.ancestry}</li>
-		  <li>Date of Birth: {selectedCharacterSiriusData.dateOfBirth}</li>
+		  <li>Alive: {selectedCharacterSiriusData.alive}</li>
 		  <li>Patronus: {selectedCharacterSiriusData.patronus}</li>
 		</ul>
 	  {/if}
@@ -220,10 +232,12 @@ onMount(async () => {
 		{#if selectedCharacterSnapeData}
 		<ul class="datalist">
 		  <li>Name: {selectedCharacterSnapeData.name}</li>
+		  <li>Hair color: {selectedCharacterSnapeData.hairColour}</li>
 		  <li>House: {selectedCharacterSnapeData.house}</li>
+		  <li>Hogwarts student: {selectedCharacterSnapeData.hogwartsStudent}</li>
 		  <li>Species: {selectedCharacterSnapeData.species}</li>
 		  <li>Ancestry: {selectedCharacterSnapeData.ancestry}</li>
-		  <li>Date of Birth: {selectedCharacterSnapeData.dateOfBirth}</li>
+		  <li>Alive: {selectedCharacterSnapeData.alive}</li>
 		  <li>Patronus: {selectedCharacterSnapeData.patronus}</li>
 		</ul>
 	  {/if}
@@ -356,7 +370,7 @@ onMount(async () => {
     margin-left: 24em;
     font-size: 1.5em;
     width: 13em;
-	background-image: url('../images/perkament.webp');
+	background-image: url('../images/perkament.png');
 	background-size: cover;
 	gap: 1em;
 	cursor: default;
