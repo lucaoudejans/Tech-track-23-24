@@ -370,7 +370,7 @@ onMount(async () => {
     margin-left: 24em;
     font-size: 1.5em;
     width: 13em;
-	background-image: url('../images/perkament.png');
+	background-image: url('images/perkament.png');
 	background-size: cover;
 	gap: 1em;
 	cursor: default;
