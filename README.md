@@ -6,7 +6,7 @@ You can scroll through the website and learn lots about the characters. There ar
 * Make sure that [Git](https://github.com/git-guides/install-git) is working on your computer. 
 * Check if Git is correctly installed by running this code in your terminal
 ```
-    git version
+git version
 ```
 
 * Clone my repository with this line of code
@@ -15,7 +15,7 @@ git clone https://github.com/lucaoudejans/Tech-track-23-24
 ```
 * For my project you also need some packages, check the packache.json file to know which packages.
 ```
-$ npm install (package)
+npm install (package)
 ```
 
 ### 📊 Developing 
