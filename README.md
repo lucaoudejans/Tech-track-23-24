@@ -1,38 +1,39 @@
-# create-svelte
+# 🖥️ Tech track project
+For this project I have made a Harry Potter website which displays certain data of seven characters from the movies.
+You can scroll through the website and learn lots about the characters. There are a few peculiar things that have been made visual into a data visualisation. See for yourself on my [website](https://tech-track-23-24-taupe.vercel.app/) or download it with the instructions below.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+## 🎏 How to use
+* Make sure that [Git](https://github.com/git-guides/install-git) is working on your computer. 
+* Check if Git is correctly installed by running this code in your terminal
+```
+    git version
 ```
 
-## Developing
+* Clone my repository with this line of code
+```
+git clone https://github.com/lucaoudejans/Tech-track-23-24
+```
+* For my project you also need some packages, check the packache.json file to know which packages.
+```
+$ npm install (package)
+```
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+### 📊 Developing 
+Make a developing server with this code:
+```
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
-
-```bash
+### 🗿 Building
+To build this project, use this code:
+```
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+At last, run this code to see the results!
+```
+npm run preview 
+```
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## 📝 License
+This project is licensed under a [MIT](https://github.com/lucaoudejans/Tech-track-23-24/blob/main/LICENSE.md) License. Copyright © 2023 Luca Oudejans
