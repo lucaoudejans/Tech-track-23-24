@@ -1,7 +1,9 @@
 <script>
+// importing onmount and d3
     import { onMount } from 'svelte';
     import * as d3 from 'd3';
-  
+
+// array with data that will be used
     let data = [
       { ancestry: 'pure blood', hairColor: 'blond', name: 'Draco Malfoy' },
       { ancestry: 'pure blood', hairColor: 'blond', name: 'Neville Longbottom' },
@@ -13,11 +15,12 @@
     ];
   
     onMount(() => {
-      // D3-code voor de dotplot
+// D3-code for dotplot
       const margin = { top: 20, right: 30, bottom: 30, left: 40 };
       const width = 400 - margin.left - margin.right;
       const height = 300 - margin.top - margin.bottom;
-  
+
+// group element to svg + how big
       const svg = d3
         .select('#dotplot-container')
         .append('svg')
@@ -26,27 +29,27 @@
         .append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
   
-      // Unieke waarden voor x-as en y-as
+// Unique values for x and y lines
       const xValues = Array.from(new Set(data.map(d => d.ancestry)));
       const yValues = Array.from(new Set(data.map(d => d.hairColor)));
   
       const xScale = d3.scaleBand().domain(xValues).range([0, width]).padding(0.1);
       const yScale = d3.scaleBand().domain(yValues).range([height, 0]).padding(0.1);
   
-      // Voeg x-as toe
-      svg.append('g')
+// Adding x line
+        svg.append('g')
         .attr('transform', `translate(0,${height})`)
         .call(d3.axisBottom(xScale))
-        .selectAll('.tick text')
+        .selectAll('.tick text') // Selecteer de tekst van de x-as labels
         .attr('fill', 'black'); // Zet de kleur van de x-as labels op zwart
-  
-      // Voeg y-as toe
-      svg.append('g')
+
+// Adding y line
+        svg.append('g')
         .call(d3.axisLeft(yScale))
-        .selectAll('.tick text')
+        .selectAll('.tick text') // Selecteer de tekst van de y-as labels
         .attr('fill', 'black'); // Zet de kleur van de y-as labels op zwart
   
-      // Voeg cirkels toe aan de dotplot
+// Adding circles
       svg.selectAll('circle')
         .data(data)
         .enter()
@@ -59,4 +62,3 @@
   </script>
   
   <div id="dotplot-container"></div>
-  

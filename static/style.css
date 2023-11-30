@@ -142,8 +142,16 @@ cursor: default;
     font-family: 'Papyrus';
 }
 
+.goBackButton{
+    margin-top: 8em;
+    width: 13em;
+    color:rgb(56, 3, 43);
+    padding: 0.5em;
+}
+
+/* styling for components */
 #chart-container{
-    background-color: white;
+    background-color: rgb(215, 215, 215);
     padding: 2em;
     border-radius: 2em;
     margin-top: 5em;
@@ -151,7 +159,7 @@ cursor: default;
 }
 
 #dotplot-container{
-    background-color: white;
+    background-color: rgb(215, 215, 215);
     padding: 2em;
     border-radius: 2em;
     margin-top: -23.3em;

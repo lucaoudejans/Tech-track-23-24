@@ -1,7 +1,9 @@
 <script>
-import { onMount } from 'svelte';
+// importing onmount and d3
+  import { onMount } from 'svelte';
   import * as d3 from 'd3';
 
+// array with data that will be used
   let data = [
     {
       category: 'alive',
@@ -20,11 +22,12 @@ import { onMount } from 'svelte';
 
   onMount(async () => {
 
-    // making a barchart
+// Making a barchart
     const margin = { top: 20, right: 30, bottom: 30, left: 40 };
     const width = 400 - margin.left - margin.right;
     const height = 300 - margin.top - margin.bottom;
 
+// group element to svg + how big
     const svg = d3
       .select('#chart-container')
       .append('svg')
@@ -33,11 +36,12 @@ import { onMount } from 'svelte';
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
+// Unique values for x and y lines
     const xScale = d3.scaleBand().domain(data.map((d) => d.category)).range([0, width]).padding(0.1);
     const yScale = d3.scaleLinear().domain([0, 7]).range([height, 0]);
 
 
-// adding y line
+// Adding y line
     svg
       .append("line")
       .attr("x1", 0)
@@ -47,7 +51,7 @@ import { onMount } from 'svelte';
       .attr("stroke", "black")
       .attr("stroke-width", 2);
 
-// x line text
+// Text for x line
     svg
       .selectAll(".xlabel")
       .data(data)
@@ -59,7 +63,7 @@ import { onMount } from 'svelte';
       .attr("text-anchor", "middle")
       .text((d) => d.label);
 
-// y line text
+// Text for y line
     svg
       .selectAll(".ylabel")
       .data(d3.range(1, 8)) // Array van 1 tot en met 7
@@ -72,7 +76,7 @@ import { onMount } from 'svelte';
       .attr("dy", 3) // Verplaatsing van de tekst
       .text((d) => d);
 
-// adding the bars
+// Adding the bars
     svg
         .selectAll(".bar")
         .data(data)
@@ -86,7 +90,7 @@ import { onMount } from 'svelte';
         .on("mouseover", handleMouseOver)
         .on("mouseout", handleMouseOut);
 
-// adding x line (over bars)
+// Adding x line (over bars)
     svg
       .append("line")
       .attr("x1", 0)
@@ -96,10 +100,11 @@ import { onMount } from 'svelte';
       .attr("stroke", "black")
       .attr("stroke-width", 2);
 
-// legend
+// Legend
     const legend = svg
       .append("g")
-      .attr("transform", `translate(${width + 10}, 0)`); // Aan de rechterkant van de grafiek
+      // put it right to the visualisation
+      .attr("transform", `translate(${width + 10}, 0)`);
 
     legend
       .append("rect")
@@ -133,7 +138,7 @@ import { onMount } from 'svelte';
     svg.selectAll(".alive").attr("fill", "#5DBB63");
     svg.selectAll(".deceased").attr("fill", "#808080");
 
-// hover function
+// Hover function
     function handleMouseOver(event, d) {
         const studentNames = d.students || [];
 
@@ -153,7 +158,7 @@ import { onMount } from 'svelte';
             .style('box-shadow', '0 2px 4px rgba(0, 0, 0, 0.1)')
             .style('display', 'block');
         }
-
+// Styling tooltip
     tooltip
       .html(`<strong>Students:</strong> ${getTooltipContent(d)}`)
       .style('left', event.pageX + 'px')
@@ -167,6 +172,7 @@ import { onMount } from 'svelte';
     d3.select('.tooltip').remove();
   }
 
+// hover for second bar
   function getTooltipContent(data) {
     if (data.category === 'deceased') {
       return 'Sirius Black<br>Severus Snape';
