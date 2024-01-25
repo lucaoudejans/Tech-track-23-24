@@ -8,8 +8,8 @@ The resources can be found in my Wiki! -->
 <!-- importing onmount and components -->
 <script>
 import { onMount } from 'svelte';
-import Barchart from '../components/Barchart.svelte';
-import Dotplot from '../components/Dotplot.svelte';
+import Barchart from '../components/barchart.svelte';
+import Dotplot from '../components/dotplot.svelte';
 
 // set characters value to null
   let selectedCharacterHarryData = null;
@@ -19,7 +19,6 @@ import Dotplot from '../components/Dotplot.svelte';
   let selectedCharacterDracoData = null;
   let selectedCharacterSiriusData = null;
   let selectedCharacterSnapeData = null;
-
   
   onMount(async () => {
 // filtered specific characters from the dataset
@@ -31,7 +30,7 @@ import Dotplot from '../components/Dotplot.svelte';
 
 	const filteredCharacters = data.filter(character => desiredCharacters.includes(character.name));
 
-// to check if the specific characters have been filtered
+// to check if the specific characters have been filterede
 	console.log('Gefilterde karakters:', filteredCharacters);
 
 // adding value to the characters (data)
@@ -128,6 +127,7 @@ import Dotplot from '../components/Dotplot.svelte';
 </script>
 
 <main>
+
 <!-- main parted in sections, for scroll and styling -->
 	<section class="charactersection">
 		<h1>Choose your character</h1>
@@ -151,137 +151,115 @@ import Dotplot from '../components/Dotplot.svelte';
 		<h1>harry</h1>
 		<img src="../images/harrypotterstaand.png" alt="">
 
-<!-- condition rendering for certain data to pop up -->
 		{#if selectedCharacterHarryData}
-      <ul class="datalist">
-        <li>Name: {selectedCharacterHarryData.name}</li>
-		<li>Hair color: {selectedCharacterHarryData.hairColour}</li>
-        <li>House: {selectedCharacterHarryData.house}</li>
-		<li>Hogwarts student: {selectedCharacterHarryData.hogwartsStudent}</li>
-        <li>Species: {selectedCharacterHarryData.species}</li>
-        <li>Ancestry: {selectedCharacterHarryData.ancestry}</li>
-        <li>alive: {selectedCharacterHarryData.alive}</li>
-        <li>Patronus: {selectedCharacterHarryData.patronus}</li>
-      </ul>
-    	{/if}
+    		<ul class="datalist">
+      			{#each Object.entries(selectedCharacterHarryData) as [key, value]}
+	  				{#if key === 'name' || key === 'house' || key === 'hogwartsStudent' || key === 'hairColour' || key === 'species' || key === 'ancestry' || key === 'alive' || key === 'patronus'} 
+	  				<li>{key}: {value}</li>
+					{/if}
+      			{/each}
+    		</ul>
+  		{/if}
 	</section>
 
 	<section class="hermionesection">
 		<h1>hermione</h1>
 		<img src="../images/hermelienstaand.png" alt="">
 
-<!-- condition rendering for certain data to pop up -->
 		{#if selectedCharacterHermioneData}
-    <ul class="datalist">
-      <li>Name: {selectedCharacterHermioneData.name}</li>
-	  <li>Hair color: {selectedCharacterHermioneData.hairColour}</li>
-      <li>House: {selectedCharacterHermioneData.house}</li>
-	  <li>Hogwarts student: {selectedCharacterHermioneData.hogwartsStudent}</li>
-      <li>Species: {selectedCharacterHermioneData.species}</li>
-      <li>Ancestry: {selectedCharacterHermioneData.ancestry}</li>
-      <li>Alive: {selectedCharacterHermioneData.alive}</li>
-      <li>Patronus: {selectedCharacterHermioneData.patronus}</li>
-    </ul>
-  	{/if}
+    		<ul class="datalist">
+      			{#each Object.entries(selectedCharacterHermioneData) as [key, value]}
+	  				{#if key === 'name' || key === 'house' || key === 'hogwartsStudent' || key === 'hairColour' || key === 'species' || key === 'ancestry' || key === 'alive' || key === 'patronus'} 
+	  				<li>{key}: {value}</li>
+					{/if}
+      			{/each}
+    		</ul>
+  		{/if}
 	</section>
 
 	<section class="ronsection">
 		<h1>ron</h1>
 		<img src="../images/ronstaand.png" alt="">
 
-<!-- condition rendering for certain data to pop up -->
 		{#if selectedCharacterRonData}
-		<ul class="datalist">
-		  <li>Name: {selectedCharacterRonData.name}</li>
-		  <li>Hair color: {selectedCharacterRonData.hairColour}</li>
-		  <li>House: {selectedCharacterRonData.house}</li>
-		  <li>Hogwarts student: {selectedCharacterRonData.hogwartsStudent}</li>
-		  <li>Species: {selectedCharacterRonData.species}</li>
-		  <li>Ancestry: {selectedCharacterRonData.ancestry}</li>
-		  <li>Alive: {selectedCharacterRonData.alive}</li>
-		  <li>Patronus: {selectedCharacterRonData.patronus}</li>
-		</ul>
-	  	{/if}
+    		<ul class="datalist">
+      			{#each Object.entries(selectedCharacterRonData) as [key, value]}
+	  				{#if key === 'name' || key === 'house' || key === 'hogwartsStudent' || key === 'hairColour' || key === 'species' || key === 'ancestry' || key === 'alive' || key === 'patronus'} 
+	  				<li>{key}: {value}</li>
+					{/if}
+      			{/each}
+    		</ul>
+  		{/if}
 	</section>
 
 	<section class="nevillesection">
 		<h1>neville</h1>
 		<img src="../images/nevillestaand.png" alt="">
 
-<!-- condition rendering for certain data to pop up -->
 		{#if selectedCharacterNevilleData}
-		<ul class="datalist">
-		  <li>Name: {selectedCharacterNevilleData.name}</li>
-		  <li>Hair color: {selectedCharacterNevilleData.hairColour}</li>
-		  <li>House: {selectedCharacterNevilleData.house}</li>
-		  <li>Hogwarts student: {selectedCharacterNevilleData.hogwartsStudent}</li>
-		  <li>Species: {selectedCharacterNevilleData.species}</li>
-		  <li>Ancestry: {selectedCharacterNevilleData.ancestry}</li>
-		  <li>Alive: {selectedCharacterNevilleData.alive}</li>
-		  <li>Patronus: {selectedCharacterNevilleData.patronus}</li>
-		</ul>
-	  	{/if}
+    		<ul class="datalist">
+      			{#each Object.entries(selectedCharacterNevilleData) as [key, value]}
+	  				{#if key === 'name' || key === 'house' || key === 'hogwartsStudent' || key === 'hairColour' || key === 'species' || key === 'ancestry' || key === 'alive' || key === 'patronus'} 
+	  				<li>{key}: {value}</li>
+					{/if}
+      			{/each}
+    		</ul>
+  		{/if}
 	</section>
 
 	<section class="dracosection">
 		<h1>draco</h1>
 		<img src="../images/dracostaand.png" alt="">
 
-<!-- condition rendering for certain data to pop up -->
 		{#if selectedCharacterDracoData}
-		<ul class="datalist">
-		  <li>Name: {selectedCharacterDracoData.name}</li>
-		  <li>Hair color: {selectedCharacterDracoData.hairColour}</li>
-		  <li>House: {selectedCharacterDracoData.house}</li>
-		  <li>Hogwarts student: {selectedCharacterDracoData.hogwartsStudent}</li>
-		  <li>Species: {selectedCharacterDracoData.species}</li>
-		  <li>Ancestry: {selectedCharacterDracoData.ancestry}</li>
-		  <li>Alive: {selectedCharacterDracoData.alive}</li>
-		  <li>Patronus: {selectedCharacterDracoData.patronus}</li>
-		</ul>
-	  	{/if}
+    		<ul class="datalist">
+      			{#each Object.entries(selectedCharacterDracoData) as [key, value]}
+	  				{#if key === 'name' || key === 'house' || key === 'hogwartsStudent' || key === 'hairColour' || key === 'species' || key === 'ancestry' || key === 'alive' || key === 'patronus'} 
+	  				<li>{key}: {value}</li>
+					{/if}
+      			{/each}
+    		</ul>
+  		{/if}
 	</section>
 
 	<section class="siriussection">
 		<h1>sirius</h1>
 		<img src="../images/siriusstaand.png" alt="">
 
-<!-- condition rendering for certain data to pop up -->
 		{#if selectedCharacterSiriusData}
-		<ul class="datalist">
-		  <li>Name: {selectedCharacterSiriusData.name}</li>
-		  <li>Hair color: {selectedCharacterSiriusData.hairColour}</li>
-		  <li>House: {selectedCharacterSiriusData.house}</li>
-		  <li>Hogwarts student: {selectedCharacterSiriusData.hogwartsStudent}</li>
-		  <li>Species: {selectedCharacterSiriusData.species}</li>
-		  <li>Ancestry: {selectedCharacterSiriusData.ancestry}</li>
-		  <li>Alive: {selectedCharacterSiriusData.alive}</li>
-		  <li>Patronus: {selectedCharacterSiriusData.patronus}</li>
-		</ul>
-	  	{/if}
+    		<ul class="datalist">
+      			{#each Object.entries(selectedCharacterSiriusData) as [key, value]}
+	  				{#if key === 'name' || key === 'house' || key === 'hogwartsStudent' || key === 'hairColour' || key === 'species' || key === 'ancestry' || key === 'alive' || key === 'patronus'} 
+	  				<li>{key}: {value}</li>
+					{/if}
+      			{/each}
+    		</ul>
+  		{/if}
 	</section>
 
 	<section class="snapesection">
 		<h1>snape</h1>
 		<img src="../images/snapestaand.png" alt="">
 
-<!-- condition rendering for certain data to pop up -->
 		{#if selectedCharacterSnapeData}
-		<ul class="datalist">
-		  <li>Name: {selectedCharacterSnapeData.name}</li>
-		  <li>Hair color: {selectedCharacterSnapeData.hairColour}</li>
-		  <li>House: {selectedCharacterSnapeData.house}</li>
-		  <li>Hogwarts student: {selectedCharacterSnapeData.hogwartsStudent}</li>
-		  <li>Species: {selectedCharacterSnapeData.species}</li>
-		  <li>Ancestry: {selectedCharacterSnapeData.ancestry}</li>
-		  <li>Alive: {selectedCharacterSnapeData.alive}</li>
-		  <li>Patronus: {selectedCharacterSnapeData.patronus}</li>
-		</ul>
-	  	{/if}
+    		<ul class="datalist">
+      			{#each Object.entries(selectedCharacterSnapeData) as [key, value]}
+	  				{#if key === 'name' || key === 'house' || key === 'hogwartsStudent' || key === 'hairColour' || key === 'species' || key === 'ancestry' || key === 'alive' || key === 'patronus'} 
+	  				<li>{key}: {value}</li>
+					{/if}
+      			{/each}
+    		</ul>
+  		{/if}
 	</section>
 
 	<section class="graphicssection">
-		<h1>data</h1>	
+		<h1>data</h1>
+		<p class="datateksts">Now that you have met all the characters, we can point out certain things. The first chart is a barchart with 
+		data about who is a student and who is not, the peculiar thing is that all the students are still alive and the 
+		'not students' are deceased.
+		The second chart is about their hair color and ancestory. The funny thing about this chart is that you can see
+		with one look that 'pure blood' has all the hair colors unlike the other ancestories. Hover over the charts to find out more!	
+		</p>	
 
 <!-- loading in my components -->
 		<Barchart />

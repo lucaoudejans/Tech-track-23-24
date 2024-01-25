@@ -20,7 +20,7 @@
     { category: 'deceased', value: 2, label: 'not a student' },
   ];
 
-  onMount(async () => {
+  onMount(() => {
 
 // Making a barchart
     const margin = { top: 20, right: 30, bottom: 30, left: 40 };
@@ -66,16 +66,18 @@
 // Text for y line
     svg
       .selectAll(".ylabel")
-      .data(d3.range(1, 8)) // Array van 1 tot en met 7
+      .data(d3.range(1, 8))
       .enter()
       .append("text")
       .attr("class", "ylabel")
-      .attr("x", -10) // Afstand van de y-as lijn
+      .attr("x", -10)
       .attr("y", (d) => yScale(d))
       .attr("text-anchor", "end")
-      .attr("dy", 3) // Verplaatsing van de tekst
+      .attr("dy", 3)
       .text((d) => d);
 
+
+      const tooltip = d3.select('#tooltip');
 // Adding the bars
     svg
         .selectAll(".bar")
@@ -87,8 +89,25 @@
         .attr("y", (d) => yScale(d.value))
         .attr("width", xScale.bandwidth())
         .attr("height", (d) => height - yScale(d.value))
-        .on("mouseover", handleMouseOver)
-        .on("mouseout", handleMouseOut);
+        .style("cursor", "pointer")
+        .on("mouseover", function (event, d) {
+          tooltip
+          .transition()
+          .duration(200)
+          .style('opacity', 1);
+          tooltip
+            .html(`${getTooltipContent(d)}`)
+            .style('display', 'block')
+            .style('left', event.pageX + 'px')
+            .style('top', event.pageY + 'px');
+        })
+        .on("mouseout", function () {
+            tooltip
+            .transition()
+            .duration(200)
+            .style('opacity', 0)
+            .style('display', 'none');
+        });
 
 // Adding x line (over bars)
     svg
@@ -138,40 +157,6 @@
     svg.selectAll(".alive").attr("fill", "#5DBB63");
     svg.selectAll(".deceased").attr("fill", "#808080");
 
-// Hover function
-    function handleMouseOver(event, d) {
-        const studentNames = d.students || [];
-
-// To check if there's a tooltip
-        let tooltip = d3.select('.tooltip');
-
-        if (tooltip.empty()) {
-// Add a tooltip if there's no tooltip
-        tooltip = d3.select('body')
-            .append('div')
-            .attr('class', 'tooltip')
-            .style('position', 'absolute')
-            .style('color', 'black')
-            .style('background-color', 'white')
-            .style('border', '1px solid #ccc')
-            .style('border-radius', '5px')
-            .style('box-shadow', '0 2px 4px rgba(0, 0, 0, 0.1)')
-            .style('display', 'block');
-        }
-// Styling tooltip
-    tooltip
-      .html(`<strong>Students:</strong> ${getTooltipContent(d)}`)
-      .style('left', event.pageX + 'px')
-      .style('top', event.pageY + 'px');
-
-    console.log('Student Names:', studentNames);
-  }
-
-  function handleMouseOut() {
-// Let the tooltip disappear when you're not hovering anymore
-    d3.select('.tooltip').remove();
-  }
-
 // hover for second bar
   function getTooltipContent(data) {
     if (data.category === 'deceased') {
@@ -182,6 +167,6 @@
   }
 });
 </script>
-
+<div id="tooltip" class="tooltip"> </div>
 <div id="chart-container"></div>
 

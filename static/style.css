@@ -6,6 +6,11 @@
     font-family: 'Papyrus';
 	}
 
+    .imgchar img{
+        height: 200px;
+        width: auto !important;
+    }
+
 
 h1 {
     text-align: center;
@@ -28,7 +33,7 @@ img {
 
 button { 
     background-color: white;
-    color: blue;
+    color: rgb(21 21 22);
     padding: 0.5em;
     border-radius: 1em;
     cursor: pointer;
@@ -46,7 +51,7 @@ section{
 }
 
 section:first-of-type{
-    background-color: rgb(43, 30, 144);
+    background-color: rgb(21 21 22);
 }
 
 section:nth-of-type(2){
@@ -126,7 +131,7 @@ section:nth-of-type(9){
  /* styling data per person  */
 .datalist{
 flex-direction: column;
-margin-top: -28em;
+margin-top: -28em; 
 margin-left: 24em;
 font-size: 1.5em;
 width: 13em;
@@ -164,4 +169,32 @@ cursor: default;
     border-radius: 2em;
     margin-top: -23.3em;
     margin-left: 40em;
+}
+
+
+.tooltip{
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.tooltips{
+    position: absolute;
+    background-color: black;
+    padding: 20px;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.datateksts{
+    width: 70%;
+    text-align: center;
 }

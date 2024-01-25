@@ -47,7 +47,7 @@
         svg.append('g')
         .call(d3.axisLeft(yScale))
         .selectAll('.tick text') // Selecteer de tekst van de y-as labels
-        .attr('fill', 'black'); // Zet de kleur van de y-as labels op zwart
+        .attr('fill', 'black') // Zet de kleur van de y-as labels op zwart
   
 // Adding circles
       svg.selectAll('circle')
@@ -58,7 +58,8 @@
         .attr('cy', d => yScale(d.hairColor) + yScale.bandwidth() / 2)
         .attr('r', d => (d.ancestry === 'pure blood' && d.hairColor === 'blond') ? 8 : 5)
         .attr('fill', 'black'); // Zwart voor de dots
-    });
+        });
   </script>
   
+  <div id="tooltips" class="tooltips"> </div>
   <div id="dotplot-container"></div>
