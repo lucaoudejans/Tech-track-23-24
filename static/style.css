@@ -89,7 +89,7 @@ section:nth-of-type(5){
 }
 
 section:nth-of-type(5) > img{
-    width: 12em;
+    width: 17em;
     margin-right: 50em;
     margin-top: -3em;
 }
@@ -99,7 +99,7 @@ section:nth-of-type(6){
 }
 
 section:nth-of-type(6) > img{
-    width: 18em;
+    width: 47em;
     margin-right: 54em;
     margin-top: -5em;
 }
@@ -109,7 +109,7 @@ section:nth-of-type(7){
 }
 
 section:nth-of-type(7) > img{
-    width: 18em;
+    width: 12em;
     margin-right: 50em;
     margin-top: -5em;
 }
@@ -119,7 +119,7 @@ section:nth-of-type(8){
 }
 
 section:nth-of-type(8) > img{
-    width: 48em;
+    width: 20em;
     margin-right: 50em;
     margin-top: -5em;
 }
@@ -132,7 +132,7 @@ section:nth-of-type(9){
 .datalist{
 flex-direction: column;
 margin-top: -28em; 
-margin-left: 24em;
+margin-left: 32em;
 font-size: 1.5em;
 width: 13em;
 background-image: url('/images/perkament.png');
