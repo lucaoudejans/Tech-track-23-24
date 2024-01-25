@@ -8,8 +8,8 @@ The resources can be found in my Wiki! -->
 <!-- importing onmount and components -->
 <script>
 import { onMount } from 'svelte';
-import Barchart from '../components/barchart.svelte';
-import Dotplot from '../components/dotplot.svelte';
+import Barchart from '/src/components/barchart.svelte';
+import Dotplot from '/src/components/dotplot.svelte';
 
 
   let characterData = {};
