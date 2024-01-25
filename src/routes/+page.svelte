@@ -57,6 +57,15 @@ import Dotplot from '../components/dotplot.svelte';
       }
     }
 
+	function handleCharacterClick(event) {
+    const target = event.target;
+    const indexNumber = target.dataset.indexNumber;
+    
+    if (indexNumber) {
+      scrollToSection(`${target.classList[0].toLowerCase()}section`);
+    }
+  }
+
 // scroll to section when clicked on button
 	const button = document.querySelector('button');
 
@@ -133,13 +142,13 @@ import Dotplot from '../components/dotplot.svelte';
 		<h1>Choose your character</h1>
 
 			<ul>
-				<li><img class="harry" src="images/harry.png" alt="harry"></li>
-				<li><img class="hermelien" src="images/hermelien.png" alt="hermelien"></li>
-				<li><img class="ron" src="images/ron.png" alt="ron"></li>
-				<li><img class="neville" src="images/neville.png" alt="neville"></li>
-				<li><img class="draco" src="images/draco.png" alt="draco"></li>
-				<li><img class="sirius" src="images/sirius.png" alt="sirius"></li>
-				<li><img class="snape" src="images/sneep.png" alt="snape"></li>
+				<li data-index-number="1"><img class="harry" src="images/harry.png" alt="harry"></li>
+				<li data-index-number="2"><img class="hermelien" src="images/hermelien.png" alt="hermelien"></li>
+				<li data-index-number="3"><img class="ron" src="images/ron.png" alt="ron"></li>
+				<li data-index-number="4"><img class="neville" src="images/neville.png" alt="neville"></li>
+				<li data-index-number="5"><img class="draco" src="images/draco.png" alt="draco"></li>
+				<li data-index-number="6"><img class="sirius" src="images/sirius.png" alt="sirius"></li>
+				<li data-index-number="7"><img class="snape" src="images/sneep.png" alt="snape"></li>
 			</ul>
 
 			<div class="harryClick"></div>
