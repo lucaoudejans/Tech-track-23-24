@@ -59,7 +59,7 @@
       .append("text")
       .attr("class", "xlabel")
       .attr("x", (d) => xScale(d.category) + xScale.bandwidth() / 2)
-      .attr("y", height + 25) // Afstand van de x-as lijn
+      .attr("y", height + 25) 
       .attr("text-anchor", "middle")
       .text((d) => d.label);
 
@@ -90,6 +90,7 @@
         .attr("width", xScale.bandwidth())
         .attr("height", (d) => height - yScale(d.value))
         .style("cursor", "pointer")
+        // tooltip fixes, roept functie met data aan met mouse over
         .on("mouseover", function (event, d) {
           tooltip
           .transition()
